@@ -6,7 +6,7 @@ The following guide assumes that you have Git and Docker installed already, as i
 git clone <repo_url>
 ```
 
-2. Open your terminal and change directories to the cloned repo folder.
+2. Change directories to the cloned repo folder.
 ```
 cd malserver
 ```
@@ -22,12 +22,9 @@ docker run -it -p 8080:8080 malserver
 Did not receieve username and cookie params
 ```
 
-5. Modify the url to include username and cookie params.
-Example:
-```
-http://localhost:8080/?username=Test1&cookie=Test2
-```
-Press enter after the params have been added to the url. You should the following reponse:
+5. Modify the url to include username and cookie params. Example: http://localhost:8080/?username=Test1&cookie=Test2
+
+6. Press enter after the params have been added to the url. You should the following reponse:
 ```
 Received username=Test1 cookie=Test2
 ```
