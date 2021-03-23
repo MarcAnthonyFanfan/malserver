@@ -8,5 +8,5 @@ RUN python3 -m venv venv
 RUN . venv/bin/activate
 RUN pip3 install Flask
 
-EXPOSE 8080
+EXPOSE 5000
 CMD ["python3", "/malserver/app.py"]
