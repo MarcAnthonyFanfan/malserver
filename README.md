@@ -35,3 +35,5 @@ Every time you run the server, it also logs the time at which the session was st
 New Session Started: 2021-03-23 17:54:07.273424
 Captured username=Test1 cookie=Test2
 ```
+
+8. Done! Your malserver is now setup to receive usernames and cookies. Next we will look at how this can be useful for testing for vulnerabilities.
