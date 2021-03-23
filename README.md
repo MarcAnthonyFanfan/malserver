@@ -1,35 +1,33 @@
 # Setting up Web Application Security Attack Infrastructure using Flask and Python with Juice Shop
-The following guide assumes that you have Docker installed already, as installation methods on different operating systems can vary greatly.
+The following guide assumes that you have Git and Docker installed already, as installation methods on different operating systems can vary greatly.
 
-## From-Scratch Setup
-First we will walk through setting up the Docker container that will host our attack infrastructure.
-
-1. Create a container running the latest version of Ubuntu 20.04.
-You may use any Linux distribution that you like.
-However, the commands for installing the software we need might be different.
-In this guide, we will be using the latest **Ubuntu 20.04 (Focal Fossa)**.
-We will also be forwarding port 5000 from the container to the host, as this is the default port used by Flask.
+1. Clone this repository locally to your machine.
 ```
-docker run -it -p 5000:5000 --name malserver ubuntu:focal
+git clone <repo_url>
 ```
 
-2. Within the container, install Python 3.
-You should have automatically been presented an interactive shell.
-The prompt should begin with **root@############** (#'s being random characters that make up your container's id).
+2. Open your terminal and change directories to the cloned repo folder.
 ```
-apt update
-apt install python3 python3-pip python3-venv -y
-```
-
-3. Within the container, create a folder for our project and a python virtual environment within that folder.
-We will also be activating the python virtual environment (venv).
-Any time you want to utilize the packages installed within your venv, you will need to activate it.
-You can tell whether the venv has been activated, because afterwards the prompt should being with **(venv) root@############**.
-Once the venv has been activated, we will install Flask.
-```
-mkdir malserver
 cd malserver
-python3 -m venv venv
-. venv/bin/activate
-pip3 install Flask
+```
+
+3. Build the docker image and run a container using that image
+```
+docker build -t malserver .
+docker run -it -p 8080:8080 malserver
+```
+
+4. Open your browser to http://localhost:8080/ and you should see the following response:
+```
+Did not receieve username and cookie params
+```
+
+5. Modify the url to include username and cookie params.
+Example:
+```
+http://localhost:8080/?username=Test1&cookie=Test2
+```
+Press enter after the params have been added to the url. You should the following reponse:
+```
+Received username=Test1 cookie=Test2
 ```
