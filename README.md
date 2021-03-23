@@ -8,6 +8,7 @@ First we will walk through setting up the Docker container that will host our at
 You may use any Linux distribution that you like.
 However, the commands for installing the software we need might be different.
 In this guide, we will be using the latest **Ubuntu 20.04 (Focal Fossa)**.
+We will also be forwarding port 5000 from the container to the host, as this is the default port used by Flask.
 ```
 docker run -it -p 5000:5000 --name malserver ubuntu:focal
 ```
