@@ -5,7 +5,8 @@ The following guide assumes that you have Docker installed already, as installat
 First we will walk through setting up the Docker container that will host our attack infrastructure.
 
 1. Create a container running the latest version of Ubuntu 20.04.
-You may use any linux distribution that you like, however the commands for installing the software we need might be different.
+You may use any Linux distribution that you like.
+However, the commands for installing the software we need might be different.
 In this guide, we will be using the latest **Ubuntu 20.04 (Focal Fossa)**.
 ```
 docker run -it -p 5000:5000 --name malserver ubuntu:focal
